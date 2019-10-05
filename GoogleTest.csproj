@@ -55,9 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\HomePage.cs" />
+    <Compile Include="Pages\ListResultSearchComponent.cs" />
+    <Compile Include="Pages\SearchComponent.cs" />
+    <Compile Include="Pages\TopPart.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleTest.cs" />
+    <Compile Include="Tests\SearchTest.cs" />
     <Compile Include="Tests\TestRunner.cs" />
   </ItemGroup>
   <ItemGroup>
