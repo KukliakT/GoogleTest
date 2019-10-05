@@ -1,4 +1,5 @@
 ﻿using GoogleTest.Pages;
+using GoogleTest.Data;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace GoogleTest.Tests
         {
             HomePage homePage = LoadApplication();
 
-            homePage.searchComponent.Search("Allo");
+            homePage.searchComponent.Search(WordForSearchRepository.GetWiki());
             Thread.Sleep(4000);   //Only for presentation
             
         }

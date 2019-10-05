@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GoogleTest.Data;
 
 namespace GoogleTest.Pages
 {
@@ -46,9 +47,9 @@ namespace GoogleTest.Pages
         }
 
         //to do class 'ListOfResultSearch'
-        public ListResultSearchComponent Search(string input_data)
+        public ListResultSearchComponent Search(WordForSearchRepository input_data)
         {
-            EnterInSearchField(input_data).SearchField.SendKeys(Keys.Enter);    
+            EnterInSearchField(input_data.InputText).SearchField.SendKeys(Keys.Enter);    
             return new ListResultSearchComponent(driver);
         }
 
