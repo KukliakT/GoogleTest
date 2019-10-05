@@ -46,11 +46,10 @@ namespace GoogleTest.Pages
         }
 
         //to do class 'ListOfResultSearch'
-        public ListOfResultSearch Search(string input_data)
+        public ListResultSearchComponent Search(string input_data)
         {
-            EnterInSearchField(input_data).SearchField.SendKeys(Keys.Enter);
-            
-            return new ListOfResultSearch();
+            EnterInSearchField(input_data).SearchField.SendKeys(Keys.Enter);    
+            return new ListResultSearchComponent(driver);
         }
 
     }

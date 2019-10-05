@@ -25,7 +25,7 @@ namespace GoogleTest.Pages
 
         private void InitElements()
         {
-            
+            searchComponent = new SearchComponent(driver);
         }
 
         private void CheckElements()
