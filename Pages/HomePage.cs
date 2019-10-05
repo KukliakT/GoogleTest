@@ -13,8 +13,8 @@ namespace GoogleTest.Pages
         //
         public IWebElement Logo
         { get { return driver.FindElement(By.Id("hplogo")); } }
-        public IWebElement SearchField
-        { get { return driver.FindElement(By.Name("q")); } }
+
+        public SearchComponent searchComponent;
 
         public HomePage(IWebDriver driver)
         {
@@ -33,17 +33,11 @@ namespace GoogleTest.Pages
             try
             { 
                 IWebElement temp = Logo;
-                temp = SearchField;
             }
             catch(Exception)
             {
                 throw new Exception("Custom exception: CheckElements()");
             }
-        }
-
-        public Search GetViewCartLinkText()
-        {
-            return ViewCartLink.Text;
         }
 
     }
