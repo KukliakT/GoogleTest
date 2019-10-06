@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace GoogleTest.Data
 {
     public sealed class WordForSearchRepository
@@ -17,11 +12,6 @@ namespace GoogleTest.Data
         public static WordForSearchRepository GetWiki()
         {
             return new WordForSearchRepository("Wiki");        
-        }
-
-        public static WordForSearchRepository GetWeather()
-        {
-            return new WordForSearchRepository("Weather");
         }
 
         public static WordForSearchRepository GetNews()

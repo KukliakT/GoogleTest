@@ -1,15 +1,13 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GoogleTest.Pages
 {
     public class ListResultSearchComponent : TopPart
     {
-        public IList<IWebElement> ListResponce
+        //list of title search responces
+        public IList<IWebElement> ListResponse
         { get; set; }
 
         public ListResultSearchComponent(IWebDriver driver) : base(driver)
@@ -20,14 +18,14 @@ namespace GoogleTest.Pages
 
         private void InitElements()
         {
-            ListResponce = driver.FindElements(By.CssSelector("div.ellip"));
+            ListResponse = driver.FindElements(By.CssSelector("div.ellip"));
         }
 
         private void CheckElements()
         {
             try
             {
-                //IWebElement temp = SearchField;
+                IList<IWebElement> temp = ListResponse;
             }
             catch (Exception)
             {
@@ -35,10 +33,11 @@ namespace GoogleTest.Pages
             }
         }
 
-        public IList<string> GetListResponceTitle()
+        //Get the list of titles(as string)
+        public IList<string> GetListResponseTitle()
         {
             IList<string> result = new List<string>();
-            foreach (IWebElement current in ListResponce)
+            foreach (IWebElement current in ListResponse)
             {
                 result.Add(current.Text);
                 Console.WriteLine(current.Text);

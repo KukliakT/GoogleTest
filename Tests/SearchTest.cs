@@ -1,7 +1,6 @@
 ﻿using GoogleTest.Pages;
 using GoogleTest.Data;
 using NUnit.Framework;
-using System;
 using System.Linq;
 
 namespace GoogleTest.Tests
@@ -22,7 +21,7 @@ namespace GoogleTest.Tests
             //TakeScreenshot can consist two parameters: Name of screenshot and path where it will be saved
             TakesScreenshot("Result SimpleSearchTest()");
 
-            Assert.IsTrue(homePage.GetListResultSearchComponent().GetListResponceTitle().
+            Assert.IsTrue(homePage.GetListResultSearchComponent().GetListResponseTitle().
                 Any(title => title.Contains(WordForSearchRepository.GetWiki().ToString())));
         }
     }

@@ -5,7 +5,9 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 using GoogleTest.Pages;
-using OpenQA.Selenium.Firefox;
+//using OpenQA.Selenium.Firefox;
+using System.IO;
+using System.Reflection;
 
 namespace GoogleTest.Tests
 {
@@ -19,17 +21,21 @@ namespace GoogleTest.Tests
         [OneTimeSetUp]
         public void BeforeAllMethods()
         {
-            //
-            FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(@"C:\Users\ASUS\Downloads");
-            service.FirefoxBinaryPath = @"C:\Program Files\Mozilla Firefox\firefox.exe";
+            //FOR FIREFOX DRIVER, USING EXISTED PROFILE:
 
-            FirefoxOptions options = new FirefoxOptions();
-            options.Profile = new FirefoxProfile(@"C:\Users\ASUS\AppData\Roaming\Mozilla\Firefox\Profiles\yfh4ahlc.default-release");
+            //FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(@"C:\Users\ASUS\Downloads");
+            //service.FirefoxBinaryPath = @"C:\Program Files\Mozilla Firefox\firefox.exe";
 
-            driver = new FirefoxDriver(service, options);
+            //FirefoxOptions options = new FirefoxOptions();
+            //options.Profile = new FirefoxProfile(@"C:\Users\ASUS\AppData\Roaming\Mozilla\Firefox\Profiles\yfh4ahlc.default-release");
+
+            //driver = new FirefoxDriver(service, options);
             //
-            //driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+
+            //FOR CHROME:
+            driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+           
         }
 
         [OneTimeTearDown]
@@ -80,7 +86,8 @@ namespace GoogleTest.Tests
         {
             IWebElement result = wait.Until((drv) =>
             {
-                return new ListResultSearchComponent(drv).AllResponce;
+                //We are waiting for 'AllResponse' button will be displayed
+                return new ListResultSearchComponent(drv).AllResponse;
             });
             return result;
 

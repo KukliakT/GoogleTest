@@ -1,16 +1,12 @@
 ﻿using OpenQA.Selenium;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GoogleTest.Pages
 {
     public class HomePage
     {
         protected IWebDriver driver;
-        //
+
         public IWebElement Logo
         { get { return driver.FindElement(By.Id("hplogo")); } }
 
