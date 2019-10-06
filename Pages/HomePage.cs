@@ -36,8 +36,13 @@ namespace GoogleTest.Pages
             }
             catch(Exception)
             {
-                throw new Exception("Custom exception: CheckElements()!!!!!!!!!!!!");
+                throw new Exception("Custom exception: CheckElements()");
             }
+        }
+
+        public ListResultSearchComponent GetListResultSearchComponent()
+        {
+            return new ListResultSearchComponent(driver);
         }
 
     }

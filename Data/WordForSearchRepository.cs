@@ -29,5 +29,9 @@ namespace GoogleTest.Data
             return new WordForSearchRepository("News");
         }
 
+        public override string ToString()
+        {
+            return InputText;
+        }
     }
 }

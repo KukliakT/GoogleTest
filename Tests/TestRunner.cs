@@ -75,7 +75,7 @@ namespace GoogleTest.Tests
         }
 
 
-        //Explicit wait for screen
+        //Explicit wait for screenshot
         public IWebElement WaitForListResultSearchComponent()
         {
             IWebElement result = wait.Until((drv) =>
@@ -85,15 +85,6 @@ namespace GoogleTest.Tests
             return result;
 
         }
-
-        //public HomePage LoadHomePage()
-        //{
-        //    driver.Navigate().GoToUrl("http://192.168.17.128/opencart/upload/");
-        //    driver.Manage().Window.Maximize();
-        //    driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
-        //    return new HomePage(driver);
-
-        //}
 
     }
 }
