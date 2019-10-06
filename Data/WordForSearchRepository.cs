@@ -16,8 +16,17 @@ namespace GoogleTest.Data
 
         public static WordForSearchRepository GetWiki()
         {
-            return new WordForSearchRepository("Wiki");
-                
+            return new WordForSearchRepository("Wiki");        
+        }
+
+        public static WordForSearchRepository GetWeather()
+        {
+            return new WordForSearchRepository("Weather");
+        }
+
+        public static WordForSearchRepository GetNews()
+        {
+            return new WordForSearchRepository("News");
         }
 
     }

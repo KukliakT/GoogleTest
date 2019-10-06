@@ -14,6 +14,10 @@ namespace GoogleTest.Pages
         //
         public IWebElement SearchField
         { get { return driver.FindElement(By.Name("q")); } }
+        public IWebElement VirtualKeyboard
+        { get { return driver.FindElement(By.CssSelector("span.MiYK0e")); } }
+        public IWebElement SearchByVoice
+        { get { return driver.FindElement(By.CssSelector("span.hb2Smf")); } }
 
         public SearchComponent(IWebDriver driver)
         {
@@ -26,6 +30,7 @@ namespace GoogleTest.Pages
             try
             {
                 IWebElement temp = SearchField;
+                temp = VirtualKeyboard;
             }
             catch (Exception)
             {

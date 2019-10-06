@@ -11,6 +11,20 @@ namespace GoogleTest.Pages
     {
         protected IWebDriver driver;
 
+        public SearchComponent searchComponent;
+        public IWebElement SearchButton
+        { get { return driver.FindElement(By.CssSelector("div.rINcab > span")); } }
+        public IWebElement AllResponce
+        { get { return driver.FindElement(By.CssSelector("div.hdtb-mitem.hdtb-imb span.HF9Klc.ZYMsjf")); } }
+        public IWebElement ImagesResponce
+        { get { return driver.FindElement(By.XPath("//a[@class='q qs'][contains(text(),'Зображення')]")); } }
+        public IWebElement VideosResponce
+        { get { return driver.FindElement(By.XPath("//a[@class='q qs'][contains(text(),'Відео')]")); } }
+        public IWebElement NewsResponce
+        { get { return driver.FindElement(By.XPath("//a[@class='q qs'][contains(text(),'Новини')]")); } }
+        public IWebElement MapsResponce
+        { get { return driver.FindElement(By.XPath("//a[@class='q qs'][contains(text(),'Карти')]")); } }
+
         public TopPart(IWebDriver driver)
         {
             this.driver = driver;
@@ -27,6 +41,11 @@ namespace GoogleTest.Pages
         {
             // TODO Develop Custom Exception
             //IWebElement temp = Currency; // TODO All Web Elements
+        }
+
+        public void CkickOnImagesResponce()
+        {
+            ImagesResponce.Click();
         }
     }
 }

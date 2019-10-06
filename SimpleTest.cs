@@ -32,7 +32,7 @@ namespace GoogleTest
             searchField.Click();
             searchField.Clear();
             searchField.SendKeys("Wikipedia" + Keys.Enter);
-            Thread.Sleep(5000);
+            Thread.Sleep(5000); //onle for presentation
             ITakesScreenshot takesScreenshot = driver as ITakesScreenshot;
             Screenshot screenshot = takesScreenshot.GetScreenshot();
             screenshot.SaveAsFile("d:/Screenshot1.png", ScreenshotImageFormat.Png);

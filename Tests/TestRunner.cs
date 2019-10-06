@@ -4,10 +4,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.IO;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using GoogleTest.Pages;
 using OpenQA.Selenium.Firefox;
 
@@ -15,7 +11,8 @@ namespace GoogleTest.Tests
 {
     public abstract class TestRunner
     {
-        const string PATH_TO_SCREEN = @"C:\Users\ASUS\source\repos\GoogleTest\Screen";
+        const string PATH_TO_SCREEN = @"C:\Users\ASUS\source\repos\GoogleTest\Screenshot";
+        
         protected IWebDriver driver;
         protected WebDriverWait wait;
 
@@ -60,7 +57,7 @@ namespace GoogleTest.Tests
             if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
             {
                 Console.WriteLine("TestContext.CurrentContext.Result.StackTrace = " + TestContext.CurrentContext.Result.StackTrace);
-                TakesScreenshot("FailScreen.png");
+                TakesScreenshot("FailScreen");
             }
         }
 
@@ -78,14 +75,16 @@ namespace GoogleTest.Tests
         }
 
 
-        //public IWebElement WaitCheckOutLink()
-        //{
-        //    IWebElement result = wait.Until((drv) =>
-        //    {
-        //        return LoadApplication().GetCartContainerComponent().CheckOutLink;
-        //    });
-        //    return result;
-        //}
+        //Explicit wait for screen
+        public IWebElement WaitForListResultSearchComponent()
+        {
+            IWebElement result = wait.Until((drv) =>
+            {
+                return new ListResultSearchComponent(drv).AllResponce;
+            });
+            return result;
+
+        }
 
         //public HomePage LoadHomePage()
         //{

@@ -1,12 +1,6 @@
 ﻿using GoogleTest.Pages;
 using GoogleTest.Data;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace GoogleTest.Tests
 {
@@ -19,10 +13,12 @@ namespace GoogleTest.Tests
         {
             HomePage homePage = LoadApplication();
             homePage.searchComponent.Search(WordForSearchRepository.GetWiki());
-            Thread.Sleep(4000);   //Only for presentation
-            TakesScreenshot("Result SimpleSearchTest()");
-            Thread.Sleep(2000);   //Only for presentation
-            
+
+            //The method with explicit wait for making a screenshot
+            WaitForListResultSearchComponent();
+
+            //TakeScreenshot can consist two parameters: Name of screenshot and path where it will be saved
+            TakesScreenshot("Result SimpleSearchTest()");            
         }
     }
 }

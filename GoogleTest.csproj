@@ -91,6 +91,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Screen\" />
+    <Folder Include="Screenshot\" />
   </ItemGroup>
 </Project>

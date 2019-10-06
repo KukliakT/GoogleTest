@@ -9,6 +9,7 @@ namespace GoogleTest.Pages
 {
     public class ListResultSearchComponent : TopPart
     {
+        //"div.ellip"
         public ListResultSearchComponent(IWebDriver driver) : base(driver)
         {
             CheckElements();
@@ -25,5 +26,7 @@ namespace GoogleTest.Pages
                 throw new Exception("Custom exception: CheckElements()");
             }
         }
+
+        //To do for all functionality
     }
 }
