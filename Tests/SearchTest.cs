@@ -13,14 +13,15 @@ namespace GoogleTest.Tests
     [TestFixture]
     class SearchTest : TestRunner
     {
+
         [TestCase]
         public void SimpleSearchTest()
         {
             HomePage homePage = LoadApplication();
             homePage.searchComponent.Search(WordForSearchRepository.GetWiki());
             Thread.Sleep(4000);   //Only for presentation
-            TakesScreenshot("d:/ WikiResult.png");
-            Thread.Sleep(4000);   //Only for presentation
+            TakesScreenshot("Result SimpleSearchTest()");
+            Thread.Sleep(2000);   //Only for presentation
             
         }
     }

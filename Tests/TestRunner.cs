@@ -15,6 +15,7 @@ namespace GoogleTest.Tests
 {
     public abstract class TestRunner
     {
+        const string PATH_TO_SCREEN = @"C:\Users\ASUS\source\repos\GoogleTest\Screen";
         protected IWebDriver driver;
         protected WebDriverWait wait;
 
@@ -59,15 +60,15 @@ namespace GoogleTest.Tests
             if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
             {
                 Console.WriteLine("TestContext.CurrentContext.Result.StackTrace = " + TestContext.CurrentContext.Result.StackTrace);
-                TakesScreenshot("d:/FailScreen.png");
+                TakesScreenshot("FailScreen.png");
             }
         }
 
-        protected void TakesScreenshot(string filePath)
+        protected void TakesScreenshot(string name, string filePath = PATH_TO_SCREEN)
         {
             ITakesScreenshot takesScreenshot = driver as ITakesScreenshot;
             Screenshot screenshot = takesScreenshot.GetScreenshot();
-            screenshot.SaveAsFile(filePath, ScreenshotImageFormat.Png);
+            screenshot.SaveAsFile(filePath  + @"\" + name + ".png", ScreenshotImageFormat.Png);
         }
 
 
