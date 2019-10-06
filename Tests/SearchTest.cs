@@ -17,8 +17,9 @@ namespace GoogleTest.Tests
         public void SimpleSearchTest()
         {
             HomePage homePage = LoadApplication();
-
             homePage.searchComponent.Search(WordForSearchRepository.GetWiki());
+            Thread.Sleep(4000);   //Only for presentation
+            TakesScreenshot("d:/ WikiResult.png");
             Thread.Sleep(4000);   //Only for presentation
             
         }

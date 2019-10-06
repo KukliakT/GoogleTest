@@ -2,11 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.Threading;
 
 namespace GoogleTest
 {
@@ -36,7 +32,7 @@ namespace GoogleTest
             searchField.Click();
             searchField.Clear();
             searchField.SendKeys("Wikipedia" + Keys.Enter);
-
+            Thread.Sleep(5000);
             ITakesScreenshot takesScreenshot = driver as ITakesScreenshot;
             Screenshot screenshot = takesScreenshot.GetScreenshot();
             screenshot.SaveAsFile("d:/Screenshot1.png", ScreenshotImageFormat.Png);

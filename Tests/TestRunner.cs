@@ -4,13 +4,12 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using GoogleTest.Pages;
+using OpenQA.Selenium.Firefox;
 
 namespace GoogleTest.Tests
 {
@@ -22,7 +21,16 @@ namespace GoogleTest.Tests
         [OneTimeSetUp]
         public void BeforeAllMethods()
         {
-            driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+            //
+            FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(@"C:\Users\ASUS\Downloads");
+            service.FirefoxBinaryPath = @"C:\Program Files\Mozilla Firefox\firefox.exe";
+
+            FirefoxOptions options = new FirefoxOptions();
+            options.Profile = new FirefoxProfile(@"C:\Users\ASUS\AppData\Roaming\Mozilla\Firefox\Profiles\yfh4ahlc.default-release");
+
+            driver = new FirefoxDriver(service, options);
+            //
+            //driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         }
 
@@ -36,6 +44,7 @@ namespace GoogleTest.Tests
         public virtual void SetUp()
         {
             driver.Navigate().GoToUrl("https://www.google.com/");
+            driver.Manage().Window.Maximize();
         }
 
         [TearDown]
