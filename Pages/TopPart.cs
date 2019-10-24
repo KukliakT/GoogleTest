@@ -8,12 +8,14 @@ namespace GoogleTest.Pages
         protected IWebDriver driver;
 
         public SearchComponent searchComponent;
+        public ServicesComponent servicesComponent;
+
         public IWebElement SearchButton
         { get { return driver.FindElement(By.CssSelector("div.rINcab > span")); } }
         public IWebElement AllResponse
         { get { return driver.FindElement(By.CssSelector("div.hdtb-mitem.hdtb-imb span.HF9Klc.ZYMsjf")); } }
         
-        //Only for russian localiation:
+        //Only for russian localization:
         public IWebElement ImagesResponse
         { get { return driver.FindElement(By.XPath("//div[@id='hdtb-msb']//a[contains(text(),'Картинки')]")); } }
         public IWebElement VideosResponse
@@ -34,6 +36,7 @@ namespace GoogleTest.Pages
         private void InitElements()
         {
             searchComponent = new SearchComponent(driver);
+            servicesComponent = new ServicesComponent(driver);
         }
 
         private void CheckElements()
